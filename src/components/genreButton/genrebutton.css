@@ -4,6 +4,11 @@
     cursor: pointer;
     background-color: #000;
     border: none;
+    transition: all .3s ease;
+}
+
+.nav__genre:hover {
+    color: rgb(255, 151, 65);
 }
 
 @media (min-width: 1300px) {

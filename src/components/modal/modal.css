@@ -24,8 +24,9 @@
     line-height: 2;
     margin: 0 .3em;
     cursor: pointer;
+    transition: all .3s ease;
 }
 
 .modal__item:hover {
-    color: #555;
+    color: rgb(255, 151, 65);
 }

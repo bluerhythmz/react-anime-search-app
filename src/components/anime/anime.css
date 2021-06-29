@@ -1,6 +1,6 @@
 .anime__item {
-    width: 10rem;
-    height: 15rem;
+    min-width: 10rem;
+    min-height: 15rem;
     position: relative;
 }
 

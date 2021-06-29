@@ -5,6 +5,19 @@
     gap: .5em;
 }
 
+.loading {
+    color: rgb(255, 151, 65);
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 800px) {
+    .anime-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 @media (min-width: 1300px) {
     .anime-container {
         grid-template-columns: repeat(8, 1fr);
