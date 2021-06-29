@@ -1,0 +1,13 @@
+.nav__genre {
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: #000;
+    border: none;
+}
+
+@media (min-width: 1300px) {
+    .nav__genre {
+        font-size: 2.4rem;
+    }
+}

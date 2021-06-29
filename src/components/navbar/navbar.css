@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+}
+
+.nav__title {
+    color: #fff;
+    font-size: 2.4rem;
+}
+
+@media (min-width: 1300px) {
+    .nav__title {
+        font-size: 3.2rem;
+    }
+}

@@ -1,0 +1,10 @@
+@media (min-width: 1300px) {
+    .search {
+        width: 80rem;
+        padding: .5em;
+        font-size: 2rem;
+    }
+    .search::-moz-placeholder {
+        font-size: 2rem;
+    }
+}

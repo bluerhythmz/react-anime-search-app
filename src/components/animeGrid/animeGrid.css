@@ -1,0 +1,12 @@
+.anime-container {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5em;
+}
+
+@media (min-width: 1300px) {
+    .anime-container {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
