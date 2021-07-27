@@ -1,3 +1,25 @@
+.search-wrapper {
+    padding: 1.5rem 0;
+    background-color: black;
+    text-align: center;
+}
+
+.search {
+    width: 90%;
+    background-color: black;
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    color: white;
+    padding: 1.5rem;
+    font-size: 2rem;
+}
+
+.search::-moz-placeholder {
+    font-size: 2rem;
+    color: #fff;
+    border-bottom: 2px solid orange;
+}
+
 @media (min-width: 1300px) {
     .search {
         width: 60rem;

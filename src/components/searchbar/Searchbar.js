@@ -1,9 +1,12 @@
 import './searchbar.css'
 
-const Searchbar = ({handleSearch}) => {
+const Searchbar = ({handleSearch, clicked}) => {
     
     return (
-        <input className="search" type="search" placeholder="Search by title..." onChange={(e) => handleSearch(e.target.value)} />
+        <div className="search-wrapper" style={clicked ? {display: "block"} : {display: "none"}}>
+            <input className="search" type="search" placeholder="Search For Anime. . ." onChange={(e) => handleSearch(e.target.value)} />
+        </div>
+        
     )
 }
 

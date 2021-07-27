@@ -1,6 +1,6 @@
 .anime__item {
-    min-width: 10rem;
-    min-height: 15rem;
+    min-width: 15rem;
+    min-height: 20rem;
     position: relative;
 }
 
@@ -9,8 +9,8 @@
     height: 100%;
 }
 
-.anime__title {
-    font-size: 1.1rem;
+/* .anime__title {
+    font-size: 1.5rem;
     color: #fff;
     position: absolute;
     bottom: 0;
@@ -23,7 +23,7 @@
     word-wrap: break-word;
     word-break: break-all;
     padding: .4em;
-}
+} */
 
 @media (min-width: 1300px) {
     .anime__item {

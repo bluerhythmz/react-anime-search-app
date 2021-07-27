@@ -1,13 +1,28 @@
 .nav {
+    background-color: #23252b;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+}
+
+.nav__items {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 1em;
+    padding: 1.5em 2em;
+}
+
+
+.nav__search {
+    cursor: pointer;
 }
 
 .nav__title {
     color: rgb(255, 151, 65);
     font-size: 2.4rem;
+    cursor: default;
 }
 
 @media (min-width: 1300px) {
