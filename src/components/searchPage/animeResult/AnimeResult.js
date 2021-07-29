@@ -8,7 +8,7 @@ const AnimeResult = ({anime, bottom, bottomImg, bottomInfo}) => {
       <div className={`anime__info ${bottomInfo}`}>
         <h3 className="anime__title">{anime.title}</h3>
         <p className="anime__episodes">Episodes: {anime.episodes}</p>
-        <p className="anime__type">{anime.type}</p>
+        <p className={`anime__type ${anime.type === "Movie" ? "movie" : "tv"}`}>{anime.type}</p>
       </div>
     </div>
   );

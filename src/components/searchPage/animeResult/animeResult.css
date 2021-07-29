@@ -28,8 +28,15 @@
 }
 
 .anime__type {
-    color: green;
     font-size: 1.6rem;
+}
+
+.tv {
+    color: green;
+}
+
+.movie {
+    color: blue;
 }
 
 @media (min-width: 600px) {

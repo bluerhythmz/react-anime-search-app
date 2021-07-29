@@ -50,17 +50,15 @@ function App() {
   };
 
   const handleClick = () => {
-    //attempt to fix bug when clicking off search
-    if (!clicked) {
+    if (clicked) {
       setSearch("");
-      setData([]);
     }
     setClicked((prev) => !prev);
   };
 
   const handleGenreClick = (id) => {
     /* setGenre(id) */
-    setClicked(false);
+    setClicked(current => !current);
   };
 
   return (
