@@ -4,7 +4,7 @@ import './navbar.css'
 import { BsSearch } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
 
-const Navbar = ({handleSearch, handleClick, clicked}) => {
+const Navbar = ({handleSearch, handleClick, clicked, search}) => {
     return (
         <>
         <nav className="nav">
@@ -17,7 +17,7 @@ const Navbar = ({handleSearch, handleClick, clicked}) => {
                 </div>
             </IconContext.Provider>
             </div>
-            <Searchbar clicked={clicked} handleSearch={handleSearch} />
+            <Searchbar search={search} clicked={clicked} handleSearch={handleSearch} />
         </nav>
             </>
     )

@@ -1,0 +1,62 @@
+.anime {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.anime__img {
+    grid-column: 1 / 2;
+}
+
+.anime__info {
+    grid-column: 2 / 3;
+    align-self: center;
+}
+
+.anime__title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: -.01em;
+}
+
+.anime__episodes {
+    color: #888;
+    font-size: 1.3rem;
+    letter-spacing: -.01em;
+}
+
+.anime__type {
+    color: green;
+    font-size: 1.6rem;
+}
+
+@media (min-width: 600px) {
+    .anime {
+        grid-template-columns: 20rem;
+        margin-bottom: 2rem;
+    }
+    
+    .anime__img {
+        grid-column: 1 / 2;
+    }
+    
+    .anime__info {
+        grid-column: 1 / 2;
+        align-self: center;
+    }
+
+    .bottom {
+        grid-template-columns: 10rem 1fr;
+    }
+
+    .bottom-img {
+        grid-column: 1 / 2;
+    }
+    
+    .bottom-info {
+        grid-column: 2 / 3;
+        align-self: center;
+    }
+}
