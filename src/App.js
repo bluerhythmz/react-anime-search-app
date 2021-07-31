@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import SearchPage from "./components/searchPage/SearchPage";
 import AnimeGridWrapper from "./components/animeGridWrapper/AnimeGridWrapper";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import ImageCarousel from "./components/imageCarousel/ImageCarousel";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -86,6 +87,7 @@ function App() {
           exact
           render={(props) => (
             <>
+              <ImageCarousel />
               <AnimeGridWrapper />
             </>
           )}
