@@ -1,5 +1,7 @@
 import "./animeGrid.css";
 import Anime from "../anime/Anime";
+import AnimePage from "../animePage/AnimePage";
+import { Link } from "react-router-dom";
 
 const AnimeGrid = ({ data, heading, description }) => {
   return (
@@ -10,13 +12,19 @@ const AnimeGrid = ({ data, heading, description }) => {
         <div className="divider"></div>
       </div>
       <div className="anime-container">
-        {data.map((item) => {
+        {data.map((anime) => {
           return (
+            <Link key={anime.mal_id} to={{
+              pathname: `/anime/${anime.mal_id}/${anime.title}`,
+              state: {
+                hello: "helloooo"
+              }
+            }}  >
             <Anime
-              key={item.mal_id}
-              image={item.image_url}
-              title={item.title}
+              image={anime.image_url}
+              title={anime.title}
             />
+            </Link>
           );
         })}
       </div>

@@ -6,14 +6,16 @@ import axios from "axios";
 import Footer from "./components/footer/Footer";
 import SearchPage from "./components/searchPage/SearchPage";
 import AnimeGridWrapper from "./components/animeGridWrapper/AnimeGridWrapper";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import ImageCarousel from "./components/imageCarousel/ImageCarousel";
+import AnimePage from "./components/animePage/AnimePage";
 
 function App() {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   /* const [genre, setGenre] = useState('') */
   /* const genres = [
     "Action", "Adventure", "Cars", "Comedy", "Dementia", "Demons", "Mystery", "Drama", "Ecchi", "Fantasy", "Game", "Hentai", "Historical",
@@ -22,12 +24,15 @@ function App() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (search.length < 2) return setData([]);
+      if (search.length < 2) {
+        return setData([]);
+      }
       if (search.length > 2) {
-        setIsLoading(true)
+        setIsLoading(true);
         axios
           .get(`https://api.jikan.moe/v3/search/anime?q=${search}&limit=30`)
           .then((res) => {
+            navigate(`q=${search}`);
             const items = res.data.results;
             setData(items);
             setIsLoading(false);
@@ -44,7 +49,7 @@ function App() {
           setIsLoading(false)
         })
       } */
-  }, [search /* genre */]);
+  }, [search, navigate /* genre */]);
 
   const handleSearch = (input) => {
     setSearch(input);
@@ -53,50 +58,45 @@ function App() {
   const handleClick = () => {
     if (clicked) {
       setSearch("");
-    }
+      
+    } 
     setClicked((prev) => !prev);
   };
 
   const handleGenreClick = (id) => {
     /* setGenre(id) */
-    setClicked(current => !current);
+    setClicked((current) => !current);
   };
 
   return (
-    <Router>
-      <div className="container">
-        <Navbar
-          search={search}
-          clicked={clicked}
-          handleClick={handleClick}
-          handleSearch={handleSearch}
+    <div className="container">
+      <Navbar
+        search={search}
+        clicked={clicked}
+        handleClick={handleClick}
+        handleSearch={handleSearch}
+      />
+
+      <Routes>
+        <Route
+          path={`q=${search}`}
+          element={<SearchPage data={data} isLoading={isLoading} />}
         />
-
-        {search.length > 2 ? (
-          <Redirect to={{ pathname: "/search" }} />
-        ) : (
-          <Redirect to={{ pathname: "/" }} />
-        )}
-
-        <Route path="/search">
-          <SearchPage data={data} isLoading={isLoading} />
-        </Route>
 
         <Route
           path="/"
-          exact
-          render={(props) => (
+          element={
             <>
               <ImageCarousel />
               <AnimeGridWrapper />
             </>
-          )}
+          }
         />
-
-        <Modal handleGenreClick={handleGenreClick} /* genres={genres} */ />
-        <Footer />
-      </div>
-    </Router>
+        <Route path="/anime/:id/:title" element={<AnimePage />} />
+      </Routes>
+      <Modal handleGenreClick={handleGenreClick} /* genres={genres} */ />
+      <Footer />
+    </div>
   );
 }
 
