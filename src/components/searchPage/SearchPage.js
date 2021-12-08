@@ -2,8 +2,10 @@ import "./searchPage.css";
 import AnimeResult from "./animeResult/AnimeResult";
 import { useState } from "react";
 import Loading from "../loading/Loading";
+import { Link } from "react-router-dom";
 
 const SearchPage = ({ data, isLoading }) => {
+  
   const sort = data.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3);
   const seriesFilter = data.filter((anime) => {
     return anime.type === "TV";
@@ -19,31 +21,35 @@ const SearchPage = ({ data, isLoading }) => {
       <h2 className="heading">Top Results</h2>
       <div className="search__grid --top">
         {sort.map((anime) => (
-          <AnimeResult key={anime.mal_id} anime={anime} />
+          <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
+            <AnimeResult anime={anime} />
+          </Link>
         ))}
       </div>
       <h2 className="heading">Series</h2>
       <div className="search__grid --bottom">
         {seriesFilter.map((anime) => (
-          <AnimeResult
-            key={anime.mal_id}
-            anime={anime}
-            bottom={"bottom"}
-            bottomImg={"bottom-img"}
-            bottomInfo={"bottom-info"}
-          />
+          <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
+            <AnimeResult
+              anime={anime}
+              bottom={"bottom"}
+              bottomImg={"bottom-img"}
+              bottomInfo={"bottom-info"}
+            />
+          </Link>
         ))}
       </div>
       <h2 className="heading">Movies</h2>
       <div className="search__grid --bottom">
         {movieFilter.map((anime) => (
-          <AnimeResult
-            key={anime.mal_id}
-            anime={anime}
-            bottom="bottom"
-            bottomImg={"bottom-img"}
-            bottomInfo={"bottom-info"}
-          />
+          <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
+            <AnimeResult
+              anime={anime}
+              bottom="bottom"
+              bottomImg={"bottom-img"}
+              bottomInfo={"bottom-info"}
+            />
+          </Link>
         ))}
       </div>
     </div>

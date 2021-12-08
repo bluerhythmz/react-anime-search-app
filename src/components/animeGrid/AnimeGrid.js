@@ -14,12 +14,7 @@ const AnimeGrid = ({ data, heading, description }) => {
       <div className="anime-container">
         {data.map((anime) => {
           return (
-            <Link key={anime.mal_id} to={{
-              pathname: `/anime/${anime.mal_id}/${anime.title}`,
-              state: {
-                hello: "helloooo"
-              }
-            }}  >
+            <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <Anime
               image={anime.image_url}
               title={anime.title}

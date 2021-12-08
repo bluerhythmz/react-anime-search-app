@@ -57,8 +57,8 @@ function App() {
 
   const handleClick = () => {
     if (clicked) {
+      navigate('/')
       setSearch("");
-      
     } 
     setClicked((prev) => !prev);
   };
@@ -79,7 +79,7 @@ function App() {
 
       <Routes>
         <Route
-          path={`q=${search}`}
+          path={`q=:query`}
           element={<SearchPage data={data} isLoading={isLoading} />}
         />
 
@@ -92,7 +92,7 @@ function App() {
             </>
           }
         />
-        <Route path="/anime/:id/:title" element={<AnimePage />} />
+        <Route path="/anime/:id/:title" element={<AnimePage setSearch={setSearch} setClicked={setClicked} />} />
       </Routes>
       <Modal handleGenreClick={handleGenreClick} /* genres={genres} */ />
       <Footer />
