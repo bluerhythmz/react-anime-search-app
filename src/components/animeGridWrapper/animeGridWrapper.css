@@ -6,7 +6,7 @@
 
 @media (min-width: 1290px) {
     .wrapper-grid {
-        max-width: 90%;
+        max-width: 60%;
         margin: 15rem auto 0 auto;
     }
 }

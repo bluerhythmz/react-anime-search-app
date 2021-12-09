@@ -1,12 +1,12 @@
 .carousel-wrapper {
     width: 100%;
-    padding: 8em 0;
+    padding: 3em 0;
     transition: .4s ease;
     position: relative;
 }
 
 .carousel {
-    width: 45%;
+    width: 38%;
     margin: auto;
     overflow: hidden;
     
@@ -51,6 +51,6 @@
 
 @media (min-width: 600px) {
     .carousel__images {
-        height: 45rem;
+        height: 60rem;
     }
 }

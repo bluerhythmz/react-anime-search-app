@@ -7,8 +7,9 @@
     display: grid;
     grid-auto-flow: column;
     /* align-items: center; */
-    gap: 1.5rem;
+    grid-gap: .5rem;
     padding: 1.5em;
+    grid-auto-columns: calc(100% / 6);
     overflow-y: hidden;
     overflow-x: scroll;
 }
@@ -48,12 +49,12 @@
 
 @media (min-width: 800px) {
     .anime-container {
-        grid-template-columns: repeat(5, 1fr);
+        /* grid-template-columns: repeat(5, 1fr); */
     }
 }
 
 @media (min-width: 1300px) {
     .anime-container {
-        grid-template-columns: repeat(8, 1fr);
+        /* grid-template-columns: repeat(8, 1fr); */
     }
 }
