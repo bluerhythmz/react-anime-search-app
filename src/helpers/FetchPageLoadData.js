@@ -14,7 +14,7 @@ const FetchPageLoadData = () => {
     const fetchData = () => {
         setIsLoading(true)
         const getPopularAnime = axios.get(
-          "https://api.jikan.moe/v3/top/anime?limit=10"
+          "https://api.jikan.moe/v3/top/anime"
         );
         const getSeasonAnime = axios.get("https://api.jikan.moe/v3/season");
         axios.all([getPopularAnime, getSeasonAnime]).then(

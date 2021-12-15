@@ -1,0 +1,12 @@
+.iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-player {
+  position: relative;
+  padding-bottom: 50%;
+}
