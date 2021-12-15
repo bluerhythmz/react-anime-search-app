@@ -1,6 +1,5 @@
 import styles from "./searchPage.module.css";
 import AnimeResult from "./animeResult/AnimeResult";
-import { useState } from "react";
 import Loading from "../loading/Loading";
 import { Link } from "react-router-dom";
 
@@ -19,7 +18,7 @@ const SearchPage = ({ data, isLoading }) => {
   return (
     <div className={styles["wrapper"]}>
       <h2 className={styles["heading"]}>Top Results</h2>
-      <div className={styles["search__grid --top"]}>
+      <div className={`${styles["search__grid"]} ${styles['--top']}`}>
         {sort.map((anime) => (
           <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <AnimeResult anime={anime} />
@@ -27,27 +26,27 @@ const SearchPage = ({ data, isLoading }) => {
         ))}
       </div>
       <h2 className={styles["heading"]}>Series</h2>
-      <div className={styles["search__grid --bottom"]}>
+      <div className={`${styles["search__grid"]} ${styles['--bottom']}`}>
         {seriesFilter.map((anime) => (
           <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <AnimeResult
               anime={anime}
-              bottom={"bottom"}
-              bottomImg={"bottom-img"}
-              bottomInfo={"bottom-info"}
+              bottom="bottom"
+              bottomImg="bottom-img"
+              bottomInfo="bottom-info"
             />
           </Link>
         ))}
       </div>
       <h2 className={styles["heading"]}>Movies</h2>
-      <div className={styles["search__grid --bottom"]}>
+      <div className={`${styles["search__grid"]} ${styles['--bottom']}`}>
         {movieFilter.map((anime) => (
           <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <AnimeResult
               anime={anime}
               bottom="bottom"
-              bottomImg={"bottom-img"}
-              bottomInfo={"bottom-info"}
+              bottomImg="bottom-img"
+              bottomInfo="bottom-info"
             />
           </Link>
         ))}
