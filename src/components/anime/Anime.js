@@ -1,10 +1,10 @@
-import './anime.css'
+import styles from './anime.module.css'
 
 const Anime = ({image, title}) => {
     return (
-        <div className="anime__item">
-            <img src={image} alt="" className="anime__img" />
-            <p className="anime__title">{title}</p>
+        <div className={styles["anime__item"]}>
+            <img src={image} alt="" className={styles["anime__img"]} />
+            <p className={styles["anime__title"]}>{title}</p>
         </div>
     )
 }

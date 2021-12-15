@@ -6,7 +6,7 @@ import image5 from "./images/image5.jpg";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import "./imageCarousel.css";
+import styles from "./imageCarousel.module.css";
 import { useState, useCallback, useEffect } from "react";
 import windowDimensions from "../../helpers/UseWindowDimensions";
 
@@ -53,12 +53,12 @@ const ImageCarousel = () => {
 
   return (
     <div
-      className="carousel-wrapper"
+      className={styles["carousel-wrapper"]}
       style={{ backgroundColor: `${count % 2 === 1 ? "teal" : "orange"}` }}
     >
-      <div className="carousel">
+      <div className={styles["carousel"]}>
         <div
-          className="carousel__images"
+          className={styles["carousel__images"]}
           style={{
             transform: `translateX(${-width * count}px)`,
             transition: `${transition}`,
@@ -67,27 +67,27 @@ const ImageCarousel = () => {
           <img
             src={image1}
             alt=""
-            className="carousel__image"
+            className={styles["carousel__image"]}
             ref={imageWidthRef}
           />
-          <img src={image2} alt="" className="carousel__image" />
-          <img src={image3} alt="" className="carousel__image" />
-          <img src={image4} alt="" className="carousel__image" />
-          <img src={image5} alt="" className="carousel__image" />
+          <img src={image2} alt="" className={styles["carousel__image"]} />
+          <img src={image3} alt="" className={styles["carousel__image"]} />
+          <img src={image4} alt="" className={styles["carousel__image"]} />
+          <img src={image5} alt="" className={styles["carousel__image"]} />
         </div>
       </div>
       <IconContext.Provider
         value={{ className: "", color: "white", size: "3em" }}
       >
         <button
-          className="prev"
+          className={styles["prev"]}
           onClick={handlePrevClick}
           disabled={disablePrevButton}
         >
           <FaAngleLeft />
         </button>
         <button
-          className="next"
+          className={styles["next"]}
           onClick={handleNextClick}
           disabled={disableNextButton}
         >

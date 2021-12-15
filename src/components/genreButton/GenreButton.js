@@ -1,8 +1,8 @@
-import './genrebutton.css'
+import styles from './genrebutton.module.css'
 
 const GenreButton = ({handleClick}) => {
     return (
-        <button className="nav__genre" onClick={handleClick}>
+        <button className={styles["nav__genre"]} onClick={handleClick}>
          Genre   
         </button>
     )

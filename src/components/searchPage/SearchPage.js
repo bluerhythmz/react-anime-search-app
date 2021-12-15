@@ -1,4 +1,4 @@
-import "./searchPage.css";
+import styles from "./searchPage.module.css";
 import AnimeResult from "./animeResult/AnimeResult";
 import { useState } from "react";
 import Loading from "../loading/Loading";
@@ -17,17 +17,17 @@ const SearchPage = ({ data, isLoading }) => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="wrapper">
-      <h2 className="heading">Top Results</h2>
-      <div className="search__grid --top">
+    <div className={styles["wrapper"]}>
+      <h2 className={styles["heading"]}>Top Results</h2>
+      <div className={styles["search__grid --top"]}>
         {sort.map((anime) => (
           <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <AnimeResult anime={anime} />
           </Link>
         ))}
       </div>
-      <h2 className="heading">Series</h2>
-      <div className="search__grid --bottom">
+      <h2 className={styles["heading"]}>Series</h2>
+      <div className={styles["search__grid --bottom"]}>
         {seriesFilter.map((anime) => (
           <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <AnimeResult
@@ -39,8 +39,8 @@ const SearchPage = ({ data, isLoading }) => {
           </Link>
         ))}
       </div>
-      <h2 className="heading">Movies</h2>
-      <div className="search__grid --bottom">
+      <h2 className={styles["heading"]}>Movies</h2>
+      <div className={styles["search__grid --bottom"]}>
         {movieFilter.map((anime) => (
           <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
             <AnimeResult

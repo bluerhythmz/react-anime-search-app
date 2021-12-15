@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./animePage.css";
+import styles from  "./animePage.module.css";
 import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "../loading/Loading";
@@ -33,25 +33,25 @@ const AnimePage = ({ setSearch, setClicked }) => {
   return (
     <>
       {!loading && (
-        <section className="anime-page">
-          <div className="video-player">
-            <iframe className="iframe" title="trailer" src={anime.trailer_url}>
+        <section className={styles[`anime-page`]}>
+          <div className={styles["video-player"]}>
+            <iframe className={styles["iframe"]} title="trailer" src={anime.trailer_url}>
               Your browser does not support the video tag.
             </iframe>
           </div>
-          <div className="anime-wrapper">
+          <div className={styles["anime-wrapper"]}>
             <img
-              className="anime-thumbnail"
+              className={styles["anime-thumbnail"]}
               src={anime.image_url}
               alt="anime_image"
             />
-            <div className="anime-page-details">
-              <h1 className="anime-page-title">{anime.title}</h1>
-              <p className="anime-page-details-text">
+            <div className={styles["anime-page-details"]}>
+              <h1 className={styles["anime-page-title"]}>{anime.title}</h1>
+              <p className={styles["anime-page-details-text"]}>
                 Episodes: {anime.episodes}
               </p>
-              <p className="anime-page-details-text">Rating: {anime.rating}</p>
-              <p className="anime-page-details-text">
+              <p className={styles["anime-page-details-text"]}>Rating: {anime.rating}</p>
+              <p className={styles["anime-page-details-text"]}>
                 Genres:
                 {anime.genres.map((genre, index) => {
                   if (index === anime.genres.length - 1) {
@@ -63,9 +63,9 @@ const AnimePage = ({ setSearch, setClicked }) => {
               </p>
             </div>
           </div>
-          <div className="anime-page-synopsis">
-            <h2 className="synopsis-title">Synopsis</h2>
-            <p className="synopsis-details">{anime.synopsis}</p>
+          <div className={styles["anime-page-synopsis"]}>
+            <h2 className={styles["synopsis-title"]}>Synopsis</h2>
+            <p className={styles["synopsis-details"]}>{anime.synopsis}</p>
           </div>
         </section>
       )}

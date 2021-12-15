@@ -41,6 +41,7 @@
 
 .anime-page-synopsis {
   max-width: 90%;
+  margin: 0 auto;
 }
 
 .synopsis-title {
@@ -54,7 +55,18 @@
 
 @media (min-width: 768px) {
   .anime-wrapper {
-    
     flex-direction: row;
+  }
+
+  .anime-page-details {
+    margin-bottom: 0;
+  }
+
+  .anime-page-synopsis {
+    margin-top: 3em;
+  }
+
+  .anime-page-details {
+    margin-left: 2em;
   }
 }
