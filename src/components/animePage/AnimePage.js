@@ -31,26 +31,45 @@ const AnimePage = ({ setSearch, setClicked }) => {
   //data we want:
   //image_url, title, episodes, rating, synopsis, genres, trailer_url
   return (
-    <section>
-      <div className="video-player">
-        <iframe className="iframe" title="trailer" src={anime.trailer_url}>
-          Your browser does not support the video tag.
-        </iframe>
-      </div>
-      <div className="anime-wrapper">
-        <img
-          className="anime-thumbnail"
-          src={anime.image_url}
-          alt="anime_image"
-        />
-        <div>
-          <h1>{anime.title}</h1>
-          <p>
-            {anime.episodes} episodes * {anime.rating}
-          </p>
-        </div>
-      </div>
-    </section>
+    <>
+      {!loading && (
+        <section className="anime-page">
+          <div className="video-player">
+            <iframe className="iframe" title="trailer" src={anime.trailer_url}>
+              Your browser does not support the video tag.
+            </iframe>
+          </div>
+          <div className="anime-wrapper">
+            <img
+              className="anime-thumbnail"
+              src={anime.image_url}
+              alt="anime_image"
+            />
+            <div className="anime-page-details">
+              <h1 className="anime-page-title">{anime.title}</h1>
+              <p className="anime-page-details-text">
+                Episodes: {anime.episodes}
+              </p>
+              <p className="anime-page-details-text">Rating: {anime.rating}</p>
+              <p className="anime-page-details-text">
+                Genres:
+                {anime.genres.map((genre, index) => {
+                  if (index === anime.genres.length - 1) {
+                    return ` ${genre.name}`;
+                  } else {
+                    return ` ${genre.name},`;
+                  }
+                })}
+              </p>
+            </div>
+          </div>
+          <div className="anime-page-synopsis">
+            <h2 className="synopsis-title">Synopsis</h2>
+            <p className="synopsis-details">{anime.synopsis}</p>
+          </div>
+        </section>
+      )}
+    </>
   );
 };
 

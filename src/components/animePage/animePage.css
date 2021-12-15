@@ -1,3 +1,7 @@
+.anime-page {
+  color: #fff;
+}
+
 .iframe {
   height: 100%;
   width: 100%;
@@ -9,4 +13,48 @@
 .video-player {
   position: relative;
   padding-bottom: 50%;
+}
+
+.anime-wrapper {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.anime-page-title {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.anime-page-details {
+  max-width: 50%;
+  margin-bottom: 2em;
+}
+
+.anime-page-details-text {
+  color: #fff;
+  font-size: 2rem;
+  word-wrap: break-word;
+}
+
+.anime-page-synopsis {
+  max-width: 90%;
+}
+
+.synopsis-title {
+  font-size: 3rem;
+}
+
+.synopsis-details {
+  margin-top: 1.5em;
+  font-size: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .anime-wrapper {
+    
+    flex-direction: row;
+  }
 }
