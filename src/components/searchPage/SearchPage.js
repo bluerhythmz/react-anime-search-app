@@ -4,7 +4,6 @@ import Loading from "../loading/Loading";
 import { Link } from "react-router-dom";
 
 const SearchPage = ({ data, isLoading }) => {
-  
   const sort = data.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3);
   const seriesFilter = data.filter((anime) => {
     return anime.type === "TV";
@@ -17,39 +16,61 @@ const SearchPage = ({ data, isLoading }) => {
 
   return (
     <div className={styles["wrapper"]}>
-      <h2 className={styles["heading"]}>Top Results</h2>
-      <div className={`${styles["search__grid"]} ${styles['--top']}`}>
-        {sort.map((anime) => (
-          <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
-            <AnimeResult anime={anime} />
-          </Link>
-        ))}
+      <div className={`${styles["search__grid-wrapper"]}`}>
+        <h2 className={styles["heading"]}>Top Results</h2>
+        <div className={`${styles["search__grid"]} ${styles["--top"]}`}>
+          {sort.map((anime) => (
+            <Link
+              key={anime.mal_id}
+              to={`/anime/${anime.mal_id}/${anime.title}`}
+              style={{ textDecoration: "none" }}
+            >
+              <AnimeResult anime={anime} />
+            </Link>
+          ))}
+        </div>
       </div>
-      <h2 className={styles["heading"]}>Series</h2>
-      <div className={`${styles["search__grid"]} ${styles['--bottom']}`}>
-        {seriesFilter.map((anime) => (
-          <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
-            <AnimeResult
-              anime={anime}
-              bottom="bottom"
-              bottomImg="bottom-img"
-              bottomInfo="bottom-info"
-            />
-          </Link>
-        ))}
+      <div
+        className={`${styles["search__grid-wrapper"]}`}
+      >
+        <h2 className={styles["heading"]}>Series</h2>
+        <div className={`${styles["search__grid"]} ${styles["--bottom"]}`}>
+          {seriesFilter.map((anime) => (
+            <Link
+              key={anime.mal_id}
+              to={`/anime/${anime.mal_id}/${anime.title}`}
+              style={{ textDecoration: "none" }}
+            >
+              <AnimeResult
+                anime={anime}
+                bottom="bottom"
+                bottomImg="bottom-img"
+                bottomInfo="bottom-info"
+              />
+            </Link>
+          ))}
+        </div>
       </div>
-      <h2 className={styles["heading"]}>Movies</h2>
-      <div className={`${styles["search__grid"]} ${styles['--bottom']}`}>
-        {movieFilter.map((anime) => (
-          <Link key={anime.mal_id} to={`/anime/${anime.mal_id}/${anime.title}`} style={{textDecoration: "none"}}>
-            <AnimeResult
-              anime={anime}
-              bottom="bottom"
-              bottomImg="bottom-img"
-              bottomInfo="bottom-info"
-            />
-          </Link>
-        ))}
+      <div
+        className={`${styles["search__grid-wrapper"]}`}
+      >
+        <h2 className={styles["heading"]}>Movies</h2>
+        <div className={`${styles["search__grid"]} ${styles["--bottom"]}`}>
+          {movieFilter.map((anime) => (
+            <Link
+              key={anime.mal_id}
+              to={`/anime/${anime.mal_id}/${anime.title}`}
+              style={{ textDecoration: "none" }}
+            >
+              <AnimeResult
+                anime={anime}
+                bottom="bottom"
+                bottomImg="bottom-img"
+                bottomInfo="bottom-info"
+              />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

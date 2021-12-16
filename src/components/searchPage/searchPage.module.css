@@ -11,6 +11,11 @@
     font-weight: 500;
 }
 
+.search__grid-wrapper {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
 .search__grid {
     display: grid;
     grid-template-columns: 30rem;
