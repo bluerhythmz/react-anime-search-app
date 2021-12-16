@@ -20,55 +20,33 @@ const SearchPage = ({ data, isLoading }) => {
         <h2 className={styles["heading"]}>Top Results</h2>
         <div className={`${styles["search__grid"]} ${styles["--top"]}`}>
           {sort.map((anime) => (
-            <Link
-              key={anime.mal_id}
-              to={`/anime/${anime.mal_id}/${anime.title}`}
-              style={{ textDecoration: "none" }}
-            >
-              <AnimeResult anime={anime} />
-            </Link>
+            <AnimeResult anime={anime} />
           ))}
         </div>
       </div>
-      <div
-        className={`${styles["search__grid-wrapper"]}`}
-      >
+      <div className={`${styles["search__grid-wrapper"]}`}>
         <h2 className={styles["heading"]}>Series</h2>
         <div className={`${styles["search__grid"]} ${styles["--bottom"]}`}>
           {seriesFilter.map((anime) => (
-            <Link
-              key={anime.mal_id}
-              to={`/anime/${anime.mal_id}/${anime.title}`}
-              style={{ textDecoration: "none" }}
-            >
-              <AnimeResult
-                anime={anime}
-                bottom="bottom"
-                bottomImg="bottom-img"
-                bottomInfo="bottom-info"
-              />
-            </Link>
+            <AnimeResult
+              anime={anime}
+              bottom="bottom"
+              bottomImg="bottom-img"
+              bottomInfo="bottom-info"
+            />
           ))}
         </div>
       </div>
-      <div
-        className={`${styles["search__grid-wrapper"]}`}
-      >
+      <div className={`${styles["search__grid-wrapper"]}`}>
         <h2 className={styles["heading"]}>Movies</h2>
         <div className={`${styles["search__grid"]} ${styles["--bottom"]}`}>
           {movieFilter.map((anime) => (
-            <Link
-              key={anime.mal_id}
-              to={`/anime/${anime.mal_id}/${anime.title}`}
-              style={{ textDecoration: "none" }}
-            >
-              <AnimeResult
-                anime={anime}
-                bottom="bottom"
-                bottomImg="bottom-img"
-                bottomInfo="bottom-info"
-              />
-            </Link>
+            <AnimeResult
+              anime={anime}
+              bottom="bottom"
+              bottomImg="bottom-img"
+              bottomInfo="bottom-info"
+            />
           ))}
         </div>
       </div>

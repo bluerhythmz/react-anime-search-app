@@ -1,5 +1,6 @@
 .anime {
     margin-bottom: 1rem;
+    padding: 0 5em;
 }
 
 .anime__img {
@@ -41,6 +42,10 @@
     .anime {
         grid-template-columns: 20rem;
         margin-bottom: 2rem;
+    }
+
+    .anime:hover {
+        background-color: rgba(136, 136, 136, .2);
     }
     
     .anime__img {
