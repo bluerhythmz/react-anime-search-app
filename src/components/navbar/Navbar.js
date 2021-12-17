@@ -5,7 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ handleSearch, handleClick, clicked, search }) => {
+const Navbar = ({ handleClick }) => {
   return (
     <>
       <nav className={styles["nav"]}>
@@ -13,20 +13,16 @@ const Navbar = ({ handleSearch, handleClick, clicked, search }) => {
           <Link to="/" style={{textDecoration: "none"}}>
             <h1 className={styles["nav__title"]}>Bowl</h1>
           </Link>
-          {/* <GenreButton handleClick={handleClick} /> */}
           <IconContext.Provider
             value={{ className: styles["nav__search"], color: "white", size: "2em" }}
           >
             <div onClick={handleClick}>
-              <BsSearch />
+              
+                <BsSearch />
+            
             </div>
           </IconContext.Provider>
         </div>
-        <Searchbar
-          search={search}
-          clicked={clicked}
-          handleSearch={handleSearch}
-        />
       </nav>
     </>
   );

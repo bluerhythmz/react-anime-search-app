@@ -1,21 +1,62 @@
 import styles from "./searchPage.module.css";
 import AnimeResult from "./animeResult/AnimeResult";
 import Loading from "../loading/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Searchbar from "../searchbar/Searchbar";
+import { useState, useEffect} from 'react'
+import axios from "axios";
 
-const SearchPage = ({ data, isLoading }) => {
-  const sort = data.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3);
-  const seriesFilter = data.filter((anime) => {
+const SearchPage = ({ search, clicked, handleSearch }) => {
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
+  const [seriesFilter, setSeriesFilter] = useState([])
+  const [sort, setSort] = useState([])
+  const [movieFilter, setMovieFilter] = useState([])
+
+  const navigate = useNavigate()
+
+  /* const sort = data.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3); */
+  /* const seriesFilter = data.filter((anime) => {
     return anime.type === "TV";
   });
   const movieFilter = data.filter((anime) => {
     return anime.type === "Movie";
-  });
+  }); */
 
-  if (isLoading) return <Loading />;
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      /* if (search.length <= 2) {
+      
+        return setData([]);
+      } */
+      
+        axios
+          .get(`https://api.jikan.moe/v3/search/anime?q=${search}&limit=30`)
+          .then((res) => {
+            
+            const items = res.data.results;
+            setData(items);
+            setSort(items.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3))
+            setIsLoading(false);
+          });
+        
+        
+        
+      
+    }, 250);
+    return () => clearTimeout(timeout);
+  }, [search, navigate]);
 
   return (
+    <>
+    <Searchbar
+          search={search}
+          clicked={clicked}
+          handleSearch={handleSearch}
+        />
+    {isLoading && <Loading />}
     <div className={styles["wrapper"]}>
+    
       <div className={`${styles["search__grid-wrapper"]}`}>
         <h2 className={styles["heading"]}>Top Results</h2>
         <div className={`${styles["search__grid"]} ${styles["--top"]}`}>
@@ -51,6 +92,7 @@ const SearchPage = ({ data, isLoading }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
