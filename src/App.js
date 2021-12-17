@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import Footer from "./components/footer/Footer";
 import SearchPage from "./components/searchPage/SearchPage";
 import AnimeGridWrapper from "./components/animeGridWrapper/AnimeGridWrapper";
@@ -14,35 +13,25 @@ function App() {
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
 
-  
-
   const handleSearch = (input) => {
     setSearch(input);
   };
 
   const handleClick = () => {
     if (clicked) {
-      navigate('/')
-      /* setSearch(""); */
+      navigate("/");
+      setSearch("");
     } else {
-      navigate(`q=`);
-      /* setSearch("nar") */
+      navigate(`search`);
     }
     setClicked((prev) => !prev);
   };
 
   return (
     <div className="container">
-      <Navbar
-        handleClick={handleClick}
-      />
+      <Navbar handleClick={handleClick} />
 
       <Routes>
-        <Route
-          path={`q=`}
-          element={<SearchPage search={search} handleSearch={handleSearch} />}
-        />
-
         <Route
           path="/"
           element={
@@ -52,7 +41,15 @@ function App() {
             </>
           }
         />
-        <Route path="/anime/:id/:title" element={<AnimePage setSearch={setSearch} setClicked={setClicked} />} />
+        <Route
+          path={`search`}
+          element={<SearchPage search={search} handleSearch={handleSearch} />}
+        />
+
+        <Route
+          path="/anime/:id/:title"
+          element={<AnimePage setSearch={setSearch} setClicked={setClicked} />}
+        />
       </Routes>
       <Footer />
     </div>

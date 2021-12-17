@@ -1,5 +1,3 @@
-import GenreButton from "../genreButton/GenreButton";
-import Searchbar from "../searchbar/Searchbar";
 import styles from "./navbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
@@ -17,9 +15,7 @@ const Navbar = ({ handleClick }) => {
             value={{ className: styles["nav__search"], color: "white", size: "2em" }}
           >
             <div onClick={handleClick}>
-              
                 <BsSearch />
-            
             </div>
           </IconContext.Provider>
         </div>
