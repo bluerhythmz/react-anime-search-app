@@ -1,12 +1,12 @@
 import styles from "./searchPage.module.css";
-import AnimeResult from "./animeResult/AnimeResult";
+import AnimeResult from "./components/animeResult/AnimeResult";
 import Loading from "../loading/Loading";
 import { useNavigate } from "react-router-dom";
 import Searchbar from "../searchbar/Searchbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchPage = ({ search, clicked, handleSearch, setSearch }) => {
+const SearchPage = ({ search, clicked, handleSearch }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
