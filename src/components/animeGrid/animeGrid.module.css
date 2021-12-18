@@ -1,8 +1,14 @@
 .grid-wrapper {
     margin-top: 2rem;
+    position: relative;
 }
 
 .anime-container {
+   
+}
+
+.anime-links {
+    width: 100%;
     margin-top: 3em;
     display: grid;
     grid-auto-flow: column;
@@ -45,6 +51,31 @@
     text-align: center;
     font-size: 3rem;
     margin-top: 3rem;
+}
+
+.next {
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    background: none;
+    border: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.prev {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    background: none;
+    border: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.next:disabled,
+.prev:disabled {
+    cursor: not-allowed;
 }
 
 @media (min-width: 800px) {
