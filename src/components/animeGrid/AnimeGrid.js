@@ -1,11 +1,11 @@
 import styles from "./animeGrid.module.css";
 import Anime from "../anime/Anime";
 import { Link } from "react-router-dom";
-import { useState, useEFfect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import windowDimensions from "../../helpers/UseWindowDimensions";
+import windowDimensions from "../../hooks/UseWindowDimensions";
 
 const AnimeGrid = ({ data, heading, description }) => {
   const [width, setWidth] = useState(0)
@@ -18,7 +18,7 @@ const AnimeGrid = ({ data, heading, description }) => {
         setWidth(node.getBoundingClientRect().width);
       }
     },
-    [windowDimensions()]
+    [/* windowDimensions() */]
   );
 
   const handleNextClick = () => {

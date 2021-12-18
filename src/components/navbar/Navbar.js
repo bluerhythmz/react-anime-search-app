@@ -1,9 +1,21 @@
 import styles from "./navbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Navbar = ({ handleClick }) => {
+const Navbar = () => {
+  const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate()
+  
+  const handleClick = () => {
+    if (clicked) {
+      navigate("/");
+    } else {
+      navigate(`search`);
+    }
+    setClicked((prev) => !prev);
+  };
   return (
     <>
       <nav className={styles["nav"]}>

@@ -1,10 +1,12 @@
 .grid-wrapper {
     margin-top: 2rem;
     position: relative;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .anime-container {
-   
+   overflow: hidden;
 }
 
 .anime-links {
@@ -12,12 +14,10 @@
     margin-top: 3em;
     display: grid;
     grid-auto-flow: column;
-    /* align-items: center; */
     grid-gap: .5rem;
     padding: 1.5em;
-    grid-auto-columns: calc(100% / 6);
-    overflow-y: hidden;
-    overflow-x: scroll;
+    grid-auto-columns: calc(100% / 3);
+    
 }
 
 .anime__heading {
@@ -79,13 +79,17 @@
 }
 
 @media (min-width: 800px) {
-    .anime-container {
-        /* grid-template-columns: repeat(5, 1fr); */
+    .anime-links {
+        grid-auto-columns: calc(100% / 4);
     }
 }
 
 @media (min-width: 1300px) {
-    .anime-container {
-        /* grid-template-columns: repeat(8, 1fr); */
+    .grid-wrapper {
+        max-width: 75%;
+    }
+
+    .anime-links {
+        grid-auto-columns: calc(100% / 6);
     }
 }

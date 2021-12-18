@@ -8,14 +8,13 @@ import { FaAngleRight } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import styles from "./imageCarousel.module.css";
 import { useState, useCallback, useEffect } from "react";
-import windowDimensions from "../../helpers/UseWindowDimensions";
+import windowDimensions from "../../hooks/UseWindowDimensions";
 
 const ImageCarousel = () => {
   const [width, setWidth] = useState(0);
-  const [newWidth, setNewWidth] = useState(0);
   const [count, setCount] = useState(0);
   const [transition, setTransition] = useState("");
-  const [disabled, setDisabled] = useState(false);
+  const windowDimensionsFunc = windowDimensions()
 
   const imageWidthRef = useCallback(
     (node) => {
@@ -23,7 +22,7 @@ const ImageCarousel = () => {
         setWidth(node.getBoundingClientRect().width);
       }
     },
-    [windowDimensions()]
+    [/*windowDimensionsFunc */]
   );
 
   useEffect(() => {

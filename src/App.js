@@ -1,35 +1,31 @@
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "./components/footer/Footer";
 import SearchPage from "./components/searchPage/SearchPage";
 import AnimeGridWrapper from "./components/animeGridWrapper/AnimeGridWrapper";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import ImageCarousel from "./components/imageCarousel/ImageCarousel";
 import AnimePage from "./components/animePage/AnimePage";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [clicked, setClicked] = useState(false);
-  const navigate = useNavigate();
+  
+  const location = useLocation()
 
   const handleSearch = (input) => {
     setSearch(input);
   };
 
-  const handleClick = () => {
-    if (clicked) {
-      navigate("/");
-      setSearch("");
-    } else {
-      navigate(`search`);
+  useEffect(() => {
+    if (!location.pathname.includes("search")) {
+      setSearch("")
     }
-    setClicked((prev) => !prev);
-  };
+  }, [location])
 
   return (
     <div className="container">
-      <Navbar handleClick={handleClick} />
+      <Navbar />
 
       <Routes>
         <Route
@@ -48,7 +44,7 @@ function App() {
 
         <Route
           path="/anime/:id/:title"
-          element={<AnimePage setSearch={setSearch} setClicked={setClicked} />}
+          element={<AnimePage setSearch={setSearch} />}
         />
       </Routes>
       <Footer />

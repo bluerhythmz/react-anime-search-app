@@ -49,7 +49,13 @@
     cursor: not-allowed;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
+    .carousel__images {
+        height: 40rem;
+    }
+}
+
+@media (min-width: 1300px) {
     .carousel__images {
         height: 60rem;
     }

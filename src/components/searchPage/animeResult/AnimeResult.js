@@ -2,8 +2,6 @@ import styles from './animeResult.module.css'
 import { Link } from 'react-router-dom';
 
 const AnimeResult = ({anime, bottom, bottomImg, bottomInfo}) => {
-  /* ${anime.type === "Movie" ? "movie" : "tv"} */
-  console.log(anime, bottom)
   return (
     <div className={`${styles[`anime`]} ${styles[bottom]}`}>
     <Link to={`/anime/${anime.mal_id}/${anime.title}`}
