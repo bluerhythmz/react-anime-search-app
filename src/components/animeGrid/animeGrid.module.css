@@ -7,11 +7,11 @@
 
 .anime-container {
    overflow: hidden;
+   padding: 3em 0;
 }
 
 .anime-links {
     width: 100%;
-    margin-top: 3em;
     display: grid;
     grid-auto-flow: column;
     grid-gap: .5rem;
@@ -86,7 +86,7 @@
 
 @media (min-width: 1300px) {
     .grid-wrapper {
-        max-width: 75%;
+        max-width: 80%;
     }
 
     .anime-links {

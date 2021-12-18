@@ -1,27 +1,25 @@
 import React from "react";
-import axios from "axios";
 import styles from  "./animePage.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "../loading/Loading";
+import useFetch from "../../hooks/useFetch";
 
 const AnimePage = () => {
   const [anime, setAnime] = useState({});
-  const [loading, setLoading] = useState(true);
   const params = useParams();
   const animeId = params.id;
+  const { loading, data } = useFetch(`https://api.jikan.moe/v3/anime/${animeId}`, {}, [animeId])
 
   useEffect(() => {
-    axios.get(`https://api.jikan.moe/v3/anime/${animeId}`).then((data) => {
-      setAnime(data.data);
-      setLoading(false);
-    });
-    if (loading) return <Loading />;
-  }, [animeId, loading]);
-
+    if (data) {
+      setAnime(data.data)
+    }
+  }, [data]);
+  
+  if (loading) return <Loading />;
   return (
     <>
-      {!loading && (
         <section className={styles[`anime-page`]}>
           <div className={styles["video-player"]}>
             <iframe className={styles["iframe"]} title="trailer" src={anime.trailer_url}>
@@ -57,7 +55,7 @@ const AnimePage = () => {
             <p className={styles["synopsis-details"]}>{anime.synopsis}</p>
           </div>
         </section>
-      )}
+      
     </>
   );
 };

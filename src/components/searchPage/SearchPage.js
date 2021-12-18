@@ -5,18 +5,19 @@ import { useNavigate } from "react-router-dom";
 import Searchbar from "../searchbar/Searchbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import useFetch from "../../hooks/useFetch";
 
 const SearchPage = ({ search, clicked, handleSearch }) => {
-  const [data, setData] = useState([]);
+  const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
-  const sort = data.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3);
-  const seriesFilter = data.filter((anime) => {
+  const sort = results.sort((a, b) => (a.score < b.score ? 1 : -1)).slice(0, 3);
+  const seriesFilter = results.filter((anime) => {
     return anime.type === "TV";
   });
-  const movieFilter = data.filter((anime) => {
+  const movieFilter = results.filter((anime) => {
     return anime.type === "Movie";
   });
 
@@ -24,13 +25,13 @@ const SearchPage = ({ search, clicked, handleSearch }) => {
     const timeout = setTimeout(() => {
       if (search.length <= 2) {
         setIsLoading(true);
-        setData([]);
+        setResults([]);
       } else {
         axios
           .get(`https://api.jikan.moe/v3/search/anime?q=${search}&limit=30`)
           .then((res) => {
             const items = res.data.results;
-            setData(items);
+            setResults(items);
             setIsLoading(false);
           });
       }
